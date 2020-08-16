@@ -3,7 +3,7 @@
 
 ## Based on ['Folding Unfolded - Polyglot FP for Fun and Profit - Haskell and Scala - Part 1'](https://www.slideshare.net/pjschwarz/folding-unfolded-polyglot-fp-for-fun-and-profit-haskell-and-scala)
 
-1. Implement **foldr** (right fold) and **foldl** (left fold) - (optional - best to skip this initially and maybe come back to it later)
+1. Implement **foldr** (right fold) and **foldl** (left fold) - (optional - skip this initially and return to it later)
    * [Fold Problem](https://github.com/philipschwarz/folding-code-kata-scala/blob/master/src/main/scala/_00_Fold_Problem.scala)
    * [Fold Solution](https://github.com/philipschwarz/folding-code-kata-scala/blob/master/src/main/scala/_00_Fold_Solution.scala)
 2. Practice implementing a number of simple functions using recursion, foldr and foldl. For each function, e.g. length, there is a problem Scala file where you can implement the function by filling in the code marked by ???, and a solution Scala file in which you can see a ready-made implementation. Both files contain assertions that get executed when you run the App contained in the file. 
