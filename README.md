@@ -55,11 +55,13 @@ object _1_Length extends App {
     case Nil     => ???
     case x :: xs => ???
   }
+  assert(length(List()) == 0)
   assert(length(List(1, 2, 3)) == 3)
   
   // length ∷ [α] → Int
   // length = foldr ??? ???
   { def length[A]: List[A] => Int = foldr(???)(???)
+    assert(length(List()) == 0)
     assert(length[Int](List(1, 2, 3)) == 3) }
   
   def oneplus[A]: A => Int => Int =
@@ -68,6 +70,7 @@ object _1_Length extends App {
   // length ∷ [α] → Int
   // length = foldl ??? ???
   { def length[A]: List[A] => Int = foldl(???)(???)
+    assert(length(List()) == 0)
     assert(length[Int](List(1, 2, 3)) == 3) }
   
   def plusOne[A]: Int => A => Int =
@@ -89,11 +92,13 @@ object _1_Length_Solution extends App {
     case Nil     => 0
     case x :: xs => 1 + length(xs)
   }
+  assert(length(List()) == 0)
   assert(length(List(1, 2, 3)) == 3)
 
   // length ∷ [α] → Int
   // length = foldr oneplus 0
   { def length[A]: List[A] => Int = foldr(oneplus)(0)
+    assert(length(List()) == 0)
     assert(length[Int](List(1, 2, 3)) == 3) }
 
   def oneplus[A]: A => Int => Int =
@@ -102,6 +107,7 @@ object _1_Length_Solution extends App {
   // length ∷ [α] → Int
   // length = foldl plusone 0
   { def length[A]: List[A] => Int = foldl(plusOne)(0)
+    assert(length(List()) == 0)
     assert(length[Int](List(1, 2, 3)) == 3) }
 
   def plusOne[A]: Int => A => Int =
