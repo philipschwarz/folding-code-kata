@@ -43,7 +43,7 @@
 ## Sample file contents
 ### Problem file _1_Length_Problem.scala:
  
- ```
+ ```Scala
 import _0_Fold_Solution.{foldl, foldr}
 
 object _1_Length extends App {
@@ -77,7 +77,7 @@ object _1_Length extends App {
 
 ### Solution file _1_Length_Solution.scala:
 
-```
+```Scala
 import _0_Fold_Solution.{foldr,foldl}
 
 object _1_Length_Solution extends App {
