@@ -21,7 +21,7 @@
    * [Map Solution](https://github.com/philipschwarz/folding-code-kata-scala/blob/master/src/main/scala/_06_Map_Solution.scala)
    * [Decimal Problem](https://github.com/philipschwarz/folding-code-kata-scala/blob/master/src/main/scala/_07_Decimal_Problem.scala)
    * [Decimal Solution](https://github.com/philipschwarz/folding-code-kata-scala/blob/master/src/main/scala/_07_Decimal_Solution.scala)
-3. See examples of the three fold duality theorems in action:                  
+3. See examples of the three fold duality theorems in action                  
    * [First Duality Theorem](https://github.com/philipschwarz/folding-code-kata-scala/blob/master/src/main/scala/_08_First_Duality_Theorem.scala)
       * foldr (⊕) e xs = foldl (⊕) e xs 
       * for all finite lists xs
@@ -46,7 +46,7 @@
  ```Scala
 import _00_Fold_Solution.{foldl, foldr}
 
-object _1_Length extends App {
+object _01_Length extends App {
 
   // length ∷ [α] → Int
   // length [] = ???
@@ -83,7 +83,7 @@ object _1_Length extends App {
 ```Scala
 import _00_Fold_Solution.{foldr,foldl}
 
-object _1_Length_Solution extends App {
+object _01_Length_Solution extends App {
 
   // length ∷ [α] → Int
   // length [] = 0
