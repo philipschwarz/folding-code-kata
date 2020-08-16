@@ -1,4 +1,4 @@
-import _0_Fold_Solution.{foldr,foldl}
+import _00_Fold_Solution.{foldr,foldl}
 
 object _02_Sum_Problem extends App {
 

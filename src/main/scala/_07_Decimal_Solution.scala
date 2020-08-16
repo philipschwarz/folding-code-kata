@@ -1,4 +1,4 @@
-import _0_Fold_Solution.{foldl, foldr}
+import _00_Fold_Solution.{foldl, foldr}
 
 object _07_Decimal_Solution extends App {
 

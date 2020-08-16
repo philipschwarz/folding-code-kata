@@ -1,4 +1,4 @@
-import _03_Concatenate_Solution._, _0_Fold_Solution.{foldr,foldl}
+import _03_Concatenate_Solution._, _00_Fold_Solution.{foldr,foldl}
 
 object _09_Second_Duality_Theorem extends App {
 

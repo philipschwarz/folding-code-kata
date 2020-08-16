@@ -1,6 +1,6 @@
 import scala.annotation.tailrec
 
-object _0_Fold_Problem extends App {
+object _00_Fold_Problem extends App {
 
   // 𝑓𝑜𝑙𝑑𝑟 ∷ (𝛼 → 𝛽 → 𝛽) → 𝛽 → [𝛼] → 𝛽
   // 𝑓𝑜𝑙𝑑𝑟 𝑓 𝑒 [] = ???
