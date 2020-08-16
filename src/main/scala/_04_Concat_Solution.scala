@@ -9,6 +9,7 @@ object _04_Concat_Solution extends App {
     case Nil => Nil
     case xs :: xss => xs ⧺ concat(xss)
   }
+  assert( concat(List()) == List() )
   assert( concat(List(List(1, 2), Nil, List(3, 2, 1))) == List(1, 2, 3, 2, 1) )
 
   // 𝑐𝑜𝑛𝑐𝑎𝑡 ∷ [[𝛼]] → [𝛼]
@@ -16,6 +17,7 @@ object _04_Concat_Solution extends App {
   // If the argument to concat is a list of length m consisting
   // lists each of length n the time complexity is O(m x n)
   { def concat[A]: List[List[A]] => List[A] = foldr(`(⧺)`[A])(Nil)
+    assert( concat(List()) == List() )
     assert( concat(List(List(1, 2), Nil, List(3, 2, 1))) == List(1, 2, 3, 2, 1) ) }
 
   // 𝑐𝑜𝑛𝑐𝑎𝑡 ∷ [[𝛼]] → [𝛼]
@@ -23,6 +25,7 @@ object _04_Concat_Solution extends App {
   // The time complexity is O(m↑2 x n) i.e. using foldr rather
   // than foldl results in an asymptotically faster program
   { def concat[A]: List[List[A]] => List[A] = foldl(`(⧺)`[A])(Nil)
+    assert( concat(List()) == List() )
     assert( concat(List(List(1, 2), Nil, List(3, 2, 1))) == List(1, 2, 3, 2, 1) ) }
 
 }

@@ -14,12 +14,14 @@ object _03_Concatenate_Problem extends App {
     }
   // x ⧺ y is syntactic sugar for `(⧺)`(x)(y)
   implicit class Syntax[A](xs: List[A]) { def ⧺(ys: List[A]): List[A] = `(⧺)`(xs)(ys) }
+  assert( (List(1, 2, 3) ⧺ List()) == List(1, 2, 3) )
   assert( (List(1, 2, 3) ⧺ List(1, 2, 3)) == List(1, 2, 3, 1, 2, 3) )
 
   // (⧺) ∷ [𝛼] → [𝛼] → [𝛼]
   // (⧺ 𝑦𝑠) = foldr ??? ???
   { def `(⧺)`[A]: List[A] => List[A] => List[A] = xs => ys => foldr(???)(???)(???)
     def cons[A]: A => List[A] => List[A] = x => xs => ???
-    assert( (List(1,2,3) ⧺ List(1, 2, 3)) == List(1, 2, 3, 1, 2, 3) ) }
+    assert( (List(1, 2, 3) ⧺ List()) == List(1, 2, 3) )
+    assert( (List(1, 2, 3) ⧺ List(1, 2, 3)) == List(1, 2, 3, 1, 2, 3) ) }
 
 }

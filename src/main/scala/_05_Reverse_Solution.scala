@@ -9,6 +9,7 @@ object _05_Reverse_Solution extends App {
     case Nil     => Nil
     case x :: xs => reverse(xs) ⧺ List(x)
   }
+  assert( reverse[Int](List()) == List() )
   assert( reverse[Int](List(1, 2, 3)) == List(3, 2, 1) )
   // The above definition is not very efficient: on  a list of length
   // 𝑛, it will need a number of reduction steps proportional to 𝑛↑2 to
@@ -24,6 +25,7 @@ object _05_Reverse_Solution extends App {
   //         𝑤ℎ𝑒𝑟𝑒 𝑠𝑛𝑜𝑐 𝑥 𝑥𝑠 = 𝑥𝑠 ⧺ [𝑥]
   // e.g. 𝑓𝑜𝑙𝑑𝑟 𝑠𝑛𝑜𝑐 [] [𝑥1,𝑥2,𝑥3] = 𝑠𝑛𝑜𝑐 𝑥1 (𝑠𝑛𝑜𝑐 𝑥2 (𝑠𝑛𝑜𝑐 𝑥3 ⊕ [])) = [𝑥3,𝑥2,𝑥1]
   { def reverse[A](xs: List[A]): List[A] = foldr(snoc[A])(Nil)(xs)
+    assert( reverse[Int](List()) == List() )
     assert( reverse[Int](List(1, 2, 3)) == List(3,2,1)) }
 
   def snoc[A]: A => List[A] => List[A] = x => xs => xs ⧺ List(x)
@@ -34,6 +36,7 @@ object _05_Reverse_Solution extends App {
   //         𝑤ℎ𝑒𝑟𝑒 𝑐𝑜𝑛𝑠 𝑥𝑠 𝑥 = 𝑥 : 𝑥𝑠
   // e.g. 𝑓𝑜𝑙𝑑𝑙 𝑐𝑜𝑛𝑠 [] [𝑥1,𝑥2,𝑥3] = 𝑐𝑜𝑛𝑠 (𝑐𝑜𝑛𝑠 (𝑐𝑜𝑛𝑠 [] 𝑥1) 𝑥2) 𝑥3 = [𝑥3,𝑥2,𝑥1]
   { def reverse[A](xs: List[A]): List[A] = foldl(cons[A])(Nil)(xs)
+    assert( reverse[Int](List()) == List() )
     assert( reverse[Int](List(1, 2, 3)) == List(3,2,1) ) }
 
   def cons[A]: List[A] => A => List[A] = xs => x => x::xs

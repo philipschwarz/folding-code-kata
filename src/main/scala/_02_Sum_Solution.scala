@@ -9,11 +9,13 @@ object _02_Sum_Solution extends App {
     case Nil     => 0
     case x :: xs => x + sum(xs)
   }
+  assert( sum(List()) == 0 )
   assert( sum(List(1, 2, 3)) == 6 )
 
   // 𝑠𝑢𝑚 ∷ [𝐼𝑛𝑡] → 𝐼𝑛𝑡
   // 𝑠𝑢𝑚 = 𝑓𝑜𝑙𝑑𝑟 (+) 0
   { val sum: List[Int] => Int = foldr(plus)(0)
+    assert( sum(List()) == 0 )
     assert(sum(List(1, 2, 3)) == 6) }
 
   def plus: Int => Int => Int =
@@ -22,5 +24,6 @@ object _02_Sum_Solution extends App {
   // 𝑠𝑢𝑚 ∷ [𝐼𝑛𝑡] → 𝐼𝑛𝑡
   // 𝑠𝑢𝑚 = 𝑓𝑜𝑙𝑑𝑙 (+) 0
   { val sum: List[Int] => Int = foldl(plus)(0)
+    assert( sum(List()) == 0 )
     assert(sum(List(1, 2, 3)) == 6) }
 }

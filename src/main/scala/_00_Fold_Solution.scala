@@ -22,7 +22,7 @@ object _00_Fold_Solution extends App {
   }
 
   // 𝑝𝑟𝑜𝑑 ∷ [𝐼𝑛𝑡] → 𝐼𝑛𝑡
-  // 𝑝𝑟𝑜𝑑 = 𝑓𝑜𝑙𝑑𝑟 (x) 0
+  // 𝑝𝑟𝑜𝑑 = 𝑓𝑜𝑙𝑑𝑟 (×) 1
   { val prod: List[Int] => Int = foldr(mult)(1)
     assert(prod(List(2, 3, 4)) == 24) }
 
@@ -30,7 +30,7 @@ object _00_Fold_Solution extends App {
     m => n => m * n
 
   // 𝑝𝑟𝑜𝑑 ∷ [𝐼𝑛𝑡] → 𝐼𝑛𝑡
-  // 𝑝𝑟𝑜𝑑 = 𝑓𝑜𝑙𝑑𝑙 (x) 0
+  // 𝑝𝑟𝑜𝑑 = 𝑓𝑜𝑙𝑑𝑙 (×) 1
   { val prod: List[Int] => Int = foldl(mult)(1)
     assert(prod(List(2, 3, 4)) == 24) }
 

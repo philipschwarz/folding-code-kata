@@ -14,6 +14,7 @@ object _11_All_Solutions_and_Theorem_Examples extends App {
     case Nil => 0
     case x :: xs => x + sum(xs)
   }
+  assert(sum(List()) == 0)
   assert(sum(List(1, 2, 3)) == 6)
 
   ///////////////////////////////////////////////////////////////////
@@ -24,6 +25,7 @@ object _11_All_Solutions_and_Theorem_Examples extends App {
     case Nil => 0
     case x :: xs => 1 + length(xs)
   }
+  assert(length(List()) == 0)
   assert(length(List(1, 2, 3)) == 3)
 
   ///////////////////////////////////////////////////////////////////
@@ -39,6 +41,7 @@ object _11_All_Solutions_and_Theorem_Examples extends App {
     }
   // x ⧺ y is syntactic sugar for `(⧺)`(x)(y)
   implicit class Syntax[A](xs: List[A]) { def ⧺(ys: List[A]): List[A] = `(⧺)`(xs)(ys) }
+  assert( (List(1, 2, 3) ⧺ List()) == List(1, 2, 3) )
   assert( (List(1, 2, 3) ⧺ List(1, 2, 3)) == List(1, 2, 3, 1, 2, 3) )
 
   ///////////////////////////////////////////////////////////////////
@@ -49,6 +52,7 @@ object _11_All_Solutions_and_Theorem_Examples extends App {
     case Nil => Nil
     case xs :: xss => xs ⧺ concat(xss)
   }
+  assert( concat(List()) == List() )
   assert( concat(List(List(1, 2), Nil, List(3, 2, 1))) == List(1, 2, 3, 2, 1) )
 
   ///////////////////////////////////////////////////////////////////
@@ -59,6 +63,7 @@ object _11_All_Solutions_and_Theorem_Examples extends App {
     case Nil     => Nil
     case x :: xs => reverse(xs) ⧺ List(x)
   }
+  assert( reverse[Int](List()) == List() )
   assert( reverse[Int](List(1, 2, 3)) == List(3, 2, 1) )
   // The above definition is not very efficient: on  a list of length
   // 𝑛, it will need a number of reduction steps proportional to 𝑛↑2 to
@@ -77,6 +82,7 @@ object _11_All_Solutions_and_Theorem_Examples extends App {
     case x :: xs => f(x) :: map(f)(xs)
   }
   val double: Int => Int = x => 2 * x
+  assert( map(double)(List()) == List() )
   assert( map(double)(List(1, 2, 3)) == List(2, 4, 6) )
 
   ///////////////////////////////////////////////////////////////////
@@ -87,6 +93,7 @@ object _11_All_Solutions_and_Theorem_Examples extends App {
     case Nil => 0
     case xs  => decimal(xs.init) * 10 + xs.last
   }
+  assert( decimal(List()) == 0 )
   assert( decimal(List(3, 4, 5)) == 345 )
 
   /////////////////////////////
@@ -107,23 +114,34 @@ object _11_All_Solutions_and_Theorem_Examples extends App {
   // 𝑠𝑢𝑚 ∷ [𝐼𝑛𝑡] → 𝐼𝑛𝑡
   // 𝑠𝑢𝑚 = 𝑓𝑜𝑙𝑑𝑟 (+) 0
   { val sum: List[Int] => Int = foldr(plus)(0)
+    assert(sum(List()) == 0 )
     assert(sum(List(1, 2, 3)) == 6) }
 
   def plus: Int => Int => Int = m => n => m + n
 
   ///////////////////////////////////////////////////////////////////
+  // 𝑝𝑟𝑜𝑑 ∷ [𝐼𝑛𝑡] → 𝐼𝑛𝑡
+  // 𝑝𝑟𝑜𝑑 = 𝑓𝑜𝑙𝑑𝑟 (×) 1
+  { val prod: List[Int] => Int = foldr(mult)(1)
+    assert(prod(List(2, 3, 4)) == 24) }
+
+  def mult: Int => Int => Int = m => n => m * n
+
+  ///////////////////////////////////////////////////////////////////
   // 𝑙𝑒𝑛𝑔𝑡ℎ ∷ [𝛼] → 𝐼𝑛𝑡
   // 𝑙𝑒𝑛𝑔𝑡ℎ = 𝑓𝑜𝑙𝑑𝑟 𝑜𝑛𝑒𝑝𝑙𝑢𝑠 0
   { def length[A]: List[A] => Int = foldr(oneplus)(0)
+    assert(length(List()) == 0)
     assert(length[Int](List(1, 2, 3)) == 3) }
 
   def oneplus[A]: A => Int => Int = x => n => 1 + n
 
   ///////////////////////////////////////////////////////////////////
   // (⧺) ∷ [𝛼] → [𝛼] → [𝛼]
-  // (⧺ 𝑦𝑠) = 𝑓𝑜𝑙𝑑 (:) 𝑦𝑠
+  // (⧺ 𝑦𝑠) = 𝑓𝑜𝑙𝑑𝑟 (:) 𝑦𝑠
   { def `(⧺)`[A]: List[A] => List[A] => List[A] = xs => ys => foldr(cons[A])(ys)(xs)
     def cons[A]: A => List[A] => List[A] = x => xs => x :: xs
+    assert( (List(1, 2, 3) ⧺ List()) == List(1, 2, 3) )
     assert( (List(1,2,3) ⧺ List(1, 2, 3)) == List(1, 2, 3, 1, 2, 3) ) }
 
   ///////////////////////////////////////////////////////////////////
@@ -132,6 +150,7 @@ object _11_All_Solutions_and_Theorem_Examples extends App {
   // If the argument to concat is a list of length m consisting
   // lists each of length n the time complexity is O(m x n)
   { def concat[A]: List[List[A]] => List[A] = foldr(`(⧺)`[A])(Nil)
+    assert( concat(List()) == List() )
     assert( concat(List(List(1, 2), Nil, List(3, 2, 1))) == List(1, 2, 3, 2, 1) )
   }
 
@@ -142,6 +161,7 @@ object _11_All_Solutions_and_Theorem_Examples extends App {
   //         𝑤ℎ𝑒𝑟𝑒 𝑠𝑛𝑜𝑐 𝑥 𝑥𝑠 = 𝑥𝑠 ⧺ [𝑥]
   // e.g. 𝑓𝑜𝑙𝑑𝑟 𝑠𝑛𝑜𝑐 [] [𝑥1,𝑥2,𝑥3] = 𝑠𝑛𝑜𝑐 𝑥1 (𝑠𝑛𝑜𝑐 𝑥2 (𝑠𝑛𝑜𝑐 𝑥3 ⊕ [])) = [𝑥3,𝑥2,𝑥1]
   { def reverse[A](xs: List[A]): List[A] = foldr(snoc[A])(Nil)(xs)
+    assert( reverse[Int](List()) == List() )
     assert( reverse[Int](List(1, 2, 3)) == List(3,2,1)) }
 
   def snoc[A]: A => List[A] => List[A] = x => xs => xs ⧺ List(x)
@@ -151,12 +171,14 @@ object _11_All_Solutions_and_Theorem_Examples extends App {
   //         𝑤ℎ𝑒𝑟𝑒 𝑐𝑜𝑛𝑠 𝑥 𝑥𝑠 = 𝑥 : 𝑥𝑠
   { def map[A,B]: (A => B) => List[A] => List[B] = f => foldr(cons compose f)(Nil)_
     def cons[A]: A => List[A] => List[A] = x => xs => x :: xs
+    assert( map(double)(List()) == List() )
     assert( map(double)(List(1, 2, 3)) == List(2, 4, 6) )}
 
   ///////////////////////////////////////////////////////////////////
   // 𝑑𝑒𝑐𝑖𝑚𝑎𝑙 ∷ [𝐼𝑛𝑡] → 𝐼𝑛𝑡
   // 𝑑𝑒𝑐𝑖𝑚𝑎𝑙 = 𝑓𝑜𝑙𝑑𝑟 (⊕) 0
   { def decimal: List[Int] => Int = xs => foldr(`(⊕)`)(0)(xs.reverse)
+    assert( decimal(List()) == 0 )
     assert( decimal(List(3, 4, 5)) == 345 ) }
 
   def `(⊕)`: Int => Int => Int = x => n => 10 * n + x
@@ -179,12 +201,20 @@ object _11_All_Solutions_and_Theorem_Examples extends App {
   // 𝑠𝑢𝑚 ∷ [𝐼𝑛𝑡] → 𝐼𝑛𝑡
   // 𝑠𝑢𝑚 = 𝑓𝑜𝑙𝑑𝑙 (+) 0
   { val sum: List[Int] => Int = foldl(plus)(0)
+    assert(sum(List()) == 0)
     assert(sum(List(1, 2, 3)) == 6) }
+
+  ///////////////////////////////////////////////////////////////////
+  // 𝑝𝑟𝑜𝑑 ∷ [𝐼𝑛𝑡] → 𝐼𝑛𝑡
+  // 𝑝𝑟𝑜𝑑 = 𝑓𝑜𝑙𝑑𝑙 (×) 1
+  { val prod: List[Int] => Int = foldl(mult)(1)
+    assert(prod(List(2, 3, 4)) == 24) }
 
   ///////////////////////////////////////////////////////////////////
   // 𝑙𝑒𝑛𝑔𝑡ℎ ∷ [𝛼] → 𝐼𝑛𝑡
   // 𝑙𝑒𝑛𝑔𝑡ℎ = 𝑓𝑜𝑙𝑑𝑙 𝑝𝑙𝑢𝑠𝑜𝑛𝑒 0
   { def length[A]: List[A] => Int = foldl(plusOne)(0)
+    assert(length(List()) == 0)
     assert(length[Int](List(1, 2, 3)) == 3) }
 
   def plusOne[A]: Int => A => Int = n => x => n + 1
@@ -195,6 +225,7 @@ object _11_All_Solutions_and_Theorem_Examples extends App {
   // The time complexity is O(m↑2 x n) i.e. using foldr rather
   // than foldl results in an asymptotically faster program
   { def concat[A]: List[List[A]] => List[A] = foldl(`(⧺)`[A])(Nil)
+    assert( concat(List()) == List() )
     assert( concat(List(List(1, 2), Nil, List(3, 2, 1))) == List(1, 2, 3, 2, 1) ) }
 
   ///////////////////////////////////////////////////////////////////
@@ -204,6 +235,7 @@ object _11_All_Solutions_and_Theorem_Examples extends App {
   //         𝑤ℎ𝑒𝑟𝑒 𝑐𝑜𝑛𝑠 𝑥𝑠 𝑥 = 𝑥 : 𝑥𝑠
   // e.g. 𝑓𝑜𝑙𝑑𝑙 𝑐𝑜𝑛𝑠 [] [𝑥1,𝑥2,𝑥3] = 𝑐𝑜𝑛𝑠 (𝑐𝑜𝑛𝑠 (𝑐𝑜𝑛𝑠 [] 𝑥1) 𝑥2) 𝑥3 = [𝑥3,𝑥2,𝑥1]
   { def reverse[A](xs: List[A]): List[A] = foldl(cons[A])(Nil)(xs)
+    assert( reverse[Int](List()) == List() )
     assert( reverse[Int](List(1, 2, 3)) == List(3,2,1) ) }
 
   def cons[A]: List[A] => A => List[A] = xs => x => x::xs
@@ -213,6 +245,7 @@ object _11_All_Solutions_and_Theorem_Examples extends App {
   // 𝑑𝑒𝑐𝑖𝑚𝑎𝑙 = 𝑓𝑜𝑙𝑑𝑙 (⊕) 0
   { def decimal: List[Int] => Int = foldl(`(⊕)`)(0)_
     def `(⊕)`: Int => Int => Int = n => x => 10 * n + x
+    assert( decimal(List()) == 0 )
     assert( decimal(List(3, 4, 5)) == 345 ) }
 
   //////////////////////
