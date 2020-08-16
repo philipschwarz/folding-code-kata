@@ -1,6 +1,6 @@
 import _0_Fold_Solution.foldr
 
-object _3_Concatenate_Problem extends App {
+object _03_Concatenate_Problem extends App {
 
   // the number of steps required to compute 𝑥𝑠 ⧺ 𝑦𝑠 is proportional
   // to the number of elements in 𝑥𝑠

@@ -1,6 +1,6 @@
-import _3_Concatenate_Solution._, _0_Fold_Solution.{foldr,foldl}
+import _03_Concatenate_Solution._, _0_Fold_Solution.{foldr,foldl}
 
-object _9_Second_Duality_Theorem extends App {
+object _09_Second_Duality_Theorem extends App {
 
   // Second duality theorem. This is a generalization of the first.
   // Suppose ⊕, ⊗, and 𝑒 are such that for all 𝑥, 𝑦, and 𝑧 we have

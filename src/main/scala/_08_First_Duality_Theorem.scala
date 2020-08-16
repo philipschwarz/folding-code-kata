@@ -1,6 +1,6 @@
 import _0_Fold_Solution.{foldr,foldl}
 
-object _8_First_Duality_Theorem extends App {
+object _08_First_Duality_Theorem extends App {
 
   // First duality theorem. Suppose (⊕) is associative with unit 𝑒.
   // Then 𝑓𝑜𝑙𝑑𝑟 (⊕) 𝑒 𝑥𝑠 = 𝑓𝑜𝑙𝑑𝑙 (⊕) 𝑒 𝑥𝑠

@@ -1,6 +1,6 @@
 import _0_Fold_Solution.foldr
 
-object _6_Map_Problem extends App {
+object _06_Map_Problem extends App {
 
   // 𝑚𝑎𝑝 ∷ (𝛼 → 𝛽) → [𝛼] → [𝛽]
   // 𝑚𝑎𝑝 𝑓 [] = ???

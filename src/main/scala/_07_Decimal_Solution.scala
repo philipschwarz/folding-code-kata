@@ -1,6 +1,6 @@
 import _0_Fold_Solution.{foldl, foldr}
 
-object _7_Decimal_Solution extends App {
+object _07_Decimal_Solution extends App {
 
   // 𝑑𝑒𝑐𝑖𝑚𝑎𝑙 ∷ [𝐼𝑛𝑡] → 𝐼𝑛𝑡
   // 𝑑𝑒𝑐𝑖𝑚𝑎𝑙 [] = 0

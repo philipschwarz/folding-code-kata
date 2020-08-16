@@ -1,6 +1,6 @@
-import _3_Concatenate_Solution._, _0_Fold_Solution.{foldl, foldr}
+import _03_Concatenate_Solution._, _0_Fold_Solution.{foldl, foldr}
 
-object _5_Reverse_Solution extends App {
+object _05_Reverse_Solution extends App {
 
   // 𝑟𝑒𝑣𝑒𝑟𝑠𝑒 ∷  [𝛼] → [𝛼]
   // 𝑟𝑒𝑣𝑒𝑟𝑠𝑒 [] = []

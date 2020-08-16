@@ -1,6 +1,6 @@
 import _0_Fold_Solution.{foldr,foldl}
 
-object _2_Sum_Problem extends App {
+object _02_Sum_Problem extends App {
 
   // 𝑠𝑢𝑚 ∷ [𝐼𝑛𝑡] → 𝐼𝑛𝑡
   // 𝑠𝑢𝑚 [] = ???
