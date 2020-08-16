@@ -1,7 +1,7 @@
 
 # Folding Code Kata
 
-## Based on slide deck ['Folding Unfolded - Polyglot FP for Fun and Profit - Haskell and Scala - Part 1'](https://www.slideshare.net/pjschwarz/folding-unfolded-polyglot-fp-for-fun-and-profit-haskell-and-scala)
+## Based on ['Folding Unfolded - Polyglot FP for Fun and Profit - Haskell and Scala - Part 1'](https://www.slideshare.net/pjschwarz/folding-unfolded-polyglot-fp-for-fun-and-profit-haskell-and-scala)
 
 1. Implement foldr (right fold) and foldl (left fold) - (optional - best to skip this initially and maybe come back to it later)
    * _0_Fold_Problem
@@ -41,7 +41,7 @@
    * _11_All_In_One
     
 ## Sample file contents
-### Problem file _1_Length_Problem.scala:
+### Problem File Example: _1_Length_Problem.scala
  
  ```Scala
 import _0_Fold_Solution.{foldl, foldr}
@@ -75,7 +75,7 @@ object _1_Length extends App {
 }
  ```
 
-### Solution file _1_Length_Solution.scala:
+### Solution File Example: _1_Length_Solution.scala
 
 ```Scala
 import _0_Fold_Solution.{foldr,foldl}
