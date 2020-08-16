@@ -1,6 +1,6 @@
 import scala.annotation.tailrec
 
-object _11_All_In_One extends App {
+object _11_All_Solutions_and_Theorem_Examples extends App {
 
   ///////////////////////////
   // Recursive definitions //
