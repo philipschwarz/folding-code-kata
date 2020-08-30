@@ -1,7 +1,7 @@
 
 # Folding Code Kata
 
-## Based on ['Folding Unfolded - Polyglot FP for Fun and Profit - Haskell and Scala - Part 1'](https://www.slideshare.net/pjschwarz/folding-unfolded-polyglot-fp-for-fun-and-profit-haskell-and-scala)
+## Based on ['Folding Unfolded - Polyglot FP for Fun and Profit - Haskell and Scala - Part 1'](https://www.slideshare.net/pjschwarz/folding-unfolded-polyglot-fp-for-fun-and-profit-haskell-and-scala) and ['Folding Unfolded - Polyglot FP for Fun and Profit - Haskell and Scala - Part 2'](https://www.slideshare.net/pjschwarz/folding-unfolded-polyglot-fp-for-fun-and-profit-haskell-and-scala-part-2)
 
 1. Implement **foldr** (right fold) and **foldl** (left fold) - (optional - skip this initially and return to it later)
    * [Fold Problem](https://github.com/philipschwarz/folding-code-kata-scala/blob/master/src/main/scala/_00_Fold_Problem.scala)
